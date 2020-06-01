@@ -49,27 +49,49 @@ class _AlbumState extends State<Album> {
     futureAlbum = fetchAlbum();
   }
 
+  final buttonStyle = TextStyle(
+    color: Colors.white,
+    fontSize: 18,
+    fontFamily: 'Gill Sans',
+    letterSpacing: 5,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Material(
       type: MaterialType.transparency,
-      child: Center(
-        child: FutureBuilder<AlbumI>(
-          future: futureAlbum,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return Text(
-                snapshot.data.title,
-                style: TextStyle(fontSize: 30, color: Colors.white),
-              );
-            } else if (snapshot.hasError) {
-              return Text("${snapshot.error}");
-            }
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 15),
+            child: FlatButton(
+              child: Text(
+                'GO BACK',
+                style: buttonStyle,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
+          FutureBuilder<AlbumI>(
+            future: futureAlbum,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Text(
+                  snapshot.data.title,
+                  style: TextStyle(fontSize: 30, color: Colors.white),
+                );
+              } else if (snapshot.hasError) {
+                return Text("${snapshot.error}");
+              }
 
-            // By default, show a loading spinner.
-            return CircularProgressIndicator();
-          },
-        ),
+              // By default, show a loading spinner.
+              return CircularProgressIndicator();
+            },
+          ),
+        ],
       ),
     );
   }

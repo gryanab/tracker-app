@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tracker/widgets/landingOptions.dart';
+import '../../widgets/Landing/components/landingOptions.dart';
 import 'package:tracker/widgets/logo.dart';
 
 class LandingPage extends StatelessWidget {

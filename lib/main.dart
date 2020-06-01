@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tracker/widgets/landing.dart';
+import './widgets/Landing/landing.dart';
 
 void main() => runApp(MyApp());
 
