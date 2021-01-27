@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tracker/widgets/Album.dart';
+import 'package:tracker/widgets/Signup/SetName/SetName.dart';
 import 'package:tracker/widgets/WhereAmI.dart';
 
 class LandingOptions extends StatelessWidget {
@@ -26,14 +26,7 @@ class LandingOptions extends StatelessWidget {
                   letterSpacing: 5,
                 ),
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Album(),
-                  ),
-                );
-              },
+              onPressed: null,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -44,7 +37,14 @@ class LandingOptions extends StatelessWidget {
                 'Sign In',
                 style: buttonStyle,
               ),
-              onPressed: null,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SetName(),
+                  ),
+                );
+              },
             ),
           ],
         ),
